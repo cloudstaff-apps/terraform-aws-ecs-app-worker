@@ -137,3 +137,25 @@ variable "security_groups" {
   default     = null
   description = "The security groups associated with the task or service"
 }
+
+variable "ssm_variables" {
+  type        = map(string)
+  description = "Map of variables and SSM locations to add to the task definition"
+  default     = {}
+}
+
+variable "static_variables" {
+  type        = map(string)
+  description = "Map of variables and static values to add to the task definition"
+  default     = {}
+}
+
+variable "ulimits" {
+  type = list(object({
+    name      = string
+    hardLimit = number
+    softLimit = number
+  }))
+  description = "Container ulimit settings. This is a list of maps, where each map should contain \"name\", \"hardLimit\" and \"softLimit\""
+  default     = null
+}
