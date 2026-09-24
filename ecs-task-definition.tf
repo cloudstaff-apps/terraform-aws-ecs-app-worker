@@ -16,6 +16,7 @@ resource "aws_ecs_task_definition" "default" {
     {
       name      = var.name
       image     = var.image
+      command   = var.command
       cpu       = var.cpu
       memory    = var.memory
       essential = true

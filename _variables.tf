@@ -159,3 +159,9 @@ variable "ulimits" {
   description = "Container ulimit settings. This is a list of maps, where each map should contain \"name\", \"hardLimit\" and \"softLimit\""
   default     = null
 }
+
+variable "command" {
+  type        = list(string)
+  default     = null
+  description = "The command passed to the container, exec form (e.g. [\"node\", \"dist/worker.js\"]). Overrides the Docker image's default CMD. Leave unset to use the image's default command."
+}
